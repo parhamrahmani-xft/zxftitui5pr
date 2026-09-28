@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZXFT_IT_UI5_SRV" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="SUI5_IT_DATA" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="StepId"/>
+                    <PropertyRef Name="SessionId"/>
+                    <PropertyRef Name="CompId"/>
+                </Key>
+                <Property Name="StepId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Anred" Type="Edm.String" Nullable="false" MaxLength="15" sap:unicode="false" sap:label="Title" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gesch" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Gender" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Gbdat" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Birth date" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nachn" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="Last Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Vorna" Type="Edm.String" Nullable="false" MaxLength="25" sap:unicode="false" sap:label="First Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telnr" Type="Edm.String" Nullable="false" MaxLength="14" sap:unicode="false" sap:label="Telephone No." sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SessionId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Session ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Component ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SUI5_IT" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CompId"/>
+                    <PropertyRef Name="StepId"/>
+                    <PropertyRef Name="SessionId"/>
+                </Key>
+                <Property Name="CompId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StepId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="SessionId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="SUI5_IT_FieldCat" Relationship="ZXFT_IT_UI5_SRV.SUI5_ITToSUI5_IT_FieldCat" FromRole="FromRole_SUI5_ITToSUI5_IT_FieldCat" ToRole="ToRole_SUI5_ITToSUI5_IT_FieldCat"/>
+            </EntityType>
+            <EntityType Name="SUI5_IT_FieldCat" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="SessionId"/>
+                    <PropertyRef Name="CompId"/>
+                    <PropertyRef Name="StepId"/>
+                </Key>
+                <Property Name="SessionId" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Session ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CompId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Component ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="StepId" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Step ID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EntityName" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Entity Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="External Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Fieldname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="ABAP Field Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ColPos" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Sequence" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tech" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Technical Field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Semantics" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Semantics" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TextS" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="ShortFieldLabel" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TextM" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="Medium Label" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TextL" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="Field Label Long" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Tooltip" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Tooltip" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Width" Type="Edm.Int32" Nullable="false" sap:unicode="false" sap:label="Width" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="WidthUnit" Type="Edm.String" Nullable="false" MaxLength="10" sap:unicode="false" sap:label="CSS Size" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Alignment" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Alignment" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NoZero" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Without Zeros" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MaxLength" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Maximum length" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Inttype" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="ABAP type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Reffield" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Ref. field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EdmType" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="EDM Core Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lowercase" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Case-Sensitive" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="TextConvertion" Type="Edm.String" Nullable="false" MaxLength="1" sap:unicode="false" sap:label="Upper/Lower Case" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Decimals" Type="Edm.Byte" Nullable="false" sap:unicode="false" sap:label="No. Decimal Places" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sign" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Sign" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Checkbox" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Checkbox" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Dropdown" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Dropdown" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Hidden" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Hidden" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Readonly" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Display Only" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mandatory" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Mandatory" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Mergeable" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Connect Fields" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Sortable" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Can Be Sorted" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Filterable" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Can Be Filtered" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MultiInput" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Multivalue" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IntervalInput" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Interval" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Multiline" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Multi-Line" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Lines" Type="Edm.Int16" Nullable="false" sap:unicode="false" sap:label="Text Lines" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PlaceholderText" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Placeholder Text" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ControlType" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Control Type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ControlKey" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Control Key" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field01" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field02" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field03" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field04" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Field05" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Recommended" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Target Field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FieldWidth" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Field Width" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DisplayMode" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Display Mode?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4availabl" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="F4 help exists" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4shlpname" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Search Help Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4shlptype" Type="Edm.String" Nullable="false" MaxLength="2" sap:unicode="false" sap:label="Help type" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4shlpfield" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="SearchHelpParam" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4remote" Type="Edm.Boolean" Nullable="false" sap:unicode="false" sap:label="Remote Input Help?" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4appllayer" Type="Edm.String" Nullable="false" MaxLength="32" sap:unicode="false" sap:label="Application Layer" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4shlpdescrfield" Type="Edm.String" Nullable="false" MaxLength="30" sap:unicode="false" sap:label="Description Field" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4interface" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4fieldsImport" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="F4fieldsExport" Type="Edm.String" Nullable="false" sap:unicode="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DropdownValues" Type="Edm.String" Nullable="false" sap:unicode="false" sap:label="Dropdown Values" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Refname" Type="Edm.String" Nullable="false" MaxLength="40" sap:unicode="false" sap:label="External Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <Association Name="SUI5_ITToSUI5_IT_FieldCat" sap:content-version="1">
+                <End Type="ZXFT_IT_UI5_SRV.SUI5_IT" Multiplicity="1" Role="FromRole_SUI5_ITToSUI5_IT_FieldCat"/>
+                <End Type="ZXFT_IT_UI5_SRV.SUI5_IT_FieldCat" Multiplicity="*" Role="ToRole_SUI5_ITToSUI5_IT_FieldCat"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_SUI5_ITToSUI5_IT_FieldCat">
+                        <PropertyRef Name="CompId"/>
+                        <PropertyRef Name="StepId"/>
+                        <PropertyRef Name="SessionId"/>
+                    </Principal>
+                    <Dependent Role="ToRole_SUI5_ITToSUI5_IT_FieldCat">
+                        <PropertyRef Name="CompId"/>
+                        <PropertyRef Name="StepId"/>
+                        <PropertyRef Name="SessionId"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZXFT_IT_UI5_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="SUI5_IT_DATASet" EntityType="ZXFT_IT_UI5_SRV.SUI5_IT_DATA" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="SUI5_ITSet" EntityType="ZXFT_IT_UI5_SRV.SUI5_IT" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SUI5_IT_FieldCatSet" EntityType="ZXFT_IT_UI5_SRV.SUI5_IT_FieldCat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <AssociationSet Name="SUI5_ITToSUI5_IT_FieldCatSet" Association="ZXFT_IT_UI5_SRV.SUI5_ITToSUI5_IT_FieldCat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SUI5_ITSet" Role="FromRole_SUI5_ITToSUI5_IT_FieldCat"/>
+                    <End EntitySet="SUI5_IT_FieldCatSet" Role="ToRole_SUI5_ITToSUI5_IT_FieldCat"/>
+                </AssociationSet>
+            </EntityContainer>
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <atom:link rel="self" href="https://VHCALS4XCI.XFT.DE:44300/sap/opu/odata/sap/ZXFT_IT_UI5_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://VHCALS4XCI.XFT.DE:44300/sap/opu/odata/sap/ZXFT_IT_UI5_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "4.0"
+metadata:
+  name: zxftitui5pr
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhcals4xci.xft.de:44300
+          client: '100'
+        app:
+          name: ZXFT_IT_UI5_PR
+          package: ZXFT_HR_PEM_UI5_it
+          transport: S4XK900398
+        exclude:
+          - /test/
+          - /localService/
