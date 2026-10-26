@@ -1,6 +1,17 @@
 <mvc:View controllerName="zxftitui5pr.controller.Main"
     xmlns:mvc="sap.ui.core.mvc"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
-    </Page>
+  <Page id="page" title="{i18n>title}">
+    <content>
+      <VBox class="sapUiMediumMargin">
+        <MessageStrip text="Hello {i18n>name} App Test"
+            type="Information" showIcon="true" class="sapUiSmallMarginBottom"/>
+ 
+        <Label text="Your name" labelFor="inpName"/>
+        <Input id="inpName" placeholder="Type your name" width="20rem"/>
+        <Button text="Say hello" type="Emphasized" press=".onSayHello"
+            class="sapUiSmallMarginTop"/>
+      </VBox>
+    </content>
+  </Page>
 </mvc:View>
